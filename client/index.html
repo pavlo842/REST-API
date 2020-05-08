@@ -27,8 +27,11 @@
             </div>
             <button type="submit" class="btn btn-primary" :disabled="!canCreate">Create</button>
         </form>
-
-        <div v-if="contacts.length">
+        <!-- добавление спинера -->
+        <div v-if="loading">
+            <loader v-cloak />
+        </div>
+        <div v-else-if="contacts.length">
             <div class="card mb-3" v-for="contact in contacts">
                 <div class="card-body">
                   <h5 class="card-title" :style="{color: contact.marked ? 'red' : 'black'}">{{contact.name}}</h5>
